@@ -1,6 +1,4 @@
 # Dependencies
-/.idea/
-/.vscode/
 /dev/
 /vendor/
 composer.lock

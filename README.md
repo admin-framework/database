@@ -1,6 +1,5 @@
 # AdminFramework Database
-
-AdminFramework Database 是一个轻量级的 PHP 数据库操作类库，提供了简洁易用的 API 来管理数据库连接、执行查询、备份和恢复数据库等功能。
+> AdminFramework Database 是一个轻量级的 PHP 数据库操作类库，提供了简洁易用的 API 来管理数据库连接、执行查询、备份和恢复数据库等功能。
 
 ## 目录结构
 

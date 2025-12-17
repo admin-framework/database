@@ -6,14 +6,11 @@
         <img src="https://poser.pugx.org/admin-framework/database/license" alt="License"> 
     </a> 
     <a href="https://github.com/admin-framework/database" target="_blank"> 
-        <img src="https://poser.pugx.org/admin-framework/database/require/php" alt="PHP Version Require"> 
+        <img src="https://img.shields.io/badge/PHP-%3E%3D7.4-blue" alt="PHP Version Require"> 
     </a> 
-    <a href="https://github.com/admin-framework/database" target="_blank"> 
-        <img src="https://poser.pugx.org/admin-framework/database/v" alt="Latest Stable Version"> 
+    <a href="https://github.com/admin-framework/database/releases" target="_blank"> 
+        <img src="https://img.shields.io/github/v/release/admin-framework/database" alt="Latest Stable Version"> 
     </a> 
-    <a href="https://packagist.org/packages/admin-framework/database" target="_blank"> 
-        <img src="https://poser.pugx.org/admin-framework/database/downloads" alt="Total Downloads"> 
-    </a>
 </p>
 ## 目录结构
 

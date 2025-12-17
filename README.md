@@ -1,6 +1,20 @@
 # AdminFramework Database
-> AdminFramework Database 是一个轻量级的 PHP 数据库操作类库，提供了简洁易用的 API 来管理数据库连接、执行查询、备份和恢复数据库等功能。
 
+> AdminFramework Database 是一个轻量级的 PHP 数据库操作类库，提供了简洁易用的 API 来管理数据库连接、执行查询、备份和恢复数据库等功能。
+<p align="center"> 
+    <a href="https://github.com/admin-framework/database/blob/main/LICENSE" target="_blank"> 
+        <img src="https://poser.pugx.org/admin-framework/database/license" alt="License"> 
+    </a> 
+    <a href="https://github.com/admin-framework/database" target="_blank"> 
+        <img src="https://poser.pugx.org/admin-framework/database/require/php" alt="PHP Version Require"> 
+    </a> 
+    <a href="https://github.com/admin-framework/database" target="_blank"> 
+        <img src="https://poser.pugx.org/admin-framework/database/v" alt="Latest Stable Version"> 
+    </a> 
+    <a href="https://packagist.org/packages/admin-framework/database" target="_blank"> 
+        <img src="https://poser.pugx.org/admin-framework/database/downloads" alt="Total Downloads"> 
+    </a>
+</p>
 ## 目录结构
 
 ```
@@ -24,12 +38,14 @@
 ## 核心功能
 
 ### 1. 数据库连接管理
+
 - 单例模式设计，确保全局只有一个数据库连接实例
 - 支持自定义数据库配置
 - 自动重连机制
 - PDO 预处理查询，防止 SQL 注入
 
 ### 2. 数据表操作
+
 - 获取数据库所有表信息
 - 获取单个表的详细信息和字段信息
 - 检查表是否存在
@@ -37,6 +53,7 @@
 - 获取表的建表语句
 
 ### 3. 数据库备份
+
 - 导出表结构
 - 导出表数据
 - 支持批量导出多个表
@@ -44,6 +61,7 @@
 - 支持分页导出大数据表
 
 ### 4. 数据库导入
+
 - 加载单个 SQL 文件
 - 递归加载目录中的 SQL 文件
 - 执行 SQL 文件中的语句
@@ -52,7 +70,9 @@
 ## 安装与配置
 
 ### 安装
+
 通过 Composer 安装 AdminFramework Database：
+
 ```bash
 composer require admin-framework/database
 ```
@@ -177,146 +197,166 @@ $count = $import->execute();
 ### 1. Database 类
 
 #### `getInstance(array $config = []): Database`
+
 获取数据库实例的唯一入口。
 
 - **参数**：
-  - `$config`：数据库配置数组
+    - `$config`：数据库配置数组
 - **返回**：Database 实例
 
 #### `pdo(): PDO`
+
 获取 PDO 实例。
 
 - **返回**：PDO 实例
 
 #### `query(string $sql, array $params = [], bool $returnStmt = false)`
+
 执行 SQL 查询。
 
 - **参数**：
-  - `$sql`：SQL 查询语句
-  - `$params`：查询参数数组
-  - `$returnStmt`：是否返回 PDOStatement 对象
+    - `$sql`：SQL 查询语句
+    - `$params`：查询参数数组
+    - `$returnStmt`：是否返回 PDOStatement 对象
 - **返回**：查询结果或受影响的行数
 
 #### `setConfig($index, $value = null): self`
+
 设置配置。
 
 - **参数**：
-  - `$index`：配置索引或数组
-  - `$value`：配置值
+    - `$index`：配置索引或数组
+    - `$value`：配置值
 - **返回**：Database 实例
 
 #### `getConfig(string $index = '', $default = false)`
+
 获取配置。
 
 - **参数**：
-  - `$index`：配置索引
-  - `$default`：默认值
+    - `$index`：配置索引
+    - `$default`：默认值
 - **返回**：配置值
 
 ### 2. Table 类
 
 #### `tables(bool $detail = true)`
+
 获取数据库所有表名或详细信息。
 
 - **参数**：
-  - `$detail`：是否显示详细信息
+    - `$detail`：是否显示详细信息
 - **返回**：表信息数组
 
 #### `info(string $tableName, string $index = ''): array`
+
 获取表信息。
 
 - **参数**：
-  - `$tableName`：表名称
-  - `$index`：要检索的特定信息索引
+    - `$tableName`：表名称
+    - `$index`：要检索的特定信息索引
 - **返回**：表信息数组
 
 #### `fields(string $tableName, bool $detail = true, string $databaseName = ''): array`
+
 获取表字段信息。
 
 - **参数**：
-  - `$tableName`：表名称
-  - `$detail`：是否显示详细信息
-  - `$databaseName`：数据库名称
+    - `$tableName`：表名称
+    - `$detail`：是否显示详细信息
+    - `$databaseName`：数据库名称
 - **返回**：表字段信息数组
 
 #### `has(string $table): bool`
+
 判断数据表是否存在。
 
 - **参数**：
-  - `$table`：表名称
+    - `$table`：表名称
 - **返回**：表存在返回 true，否则返回 false
 
 #### `drop(string $table): bool`
+
 删除数据表。
 
 - **参数**：
-  - `$table`：表名称
+    - `$table`：表名称
 - **返回**：成功返回 true，失败返回 false
 
 #### `truncate(string $table): bool`
+
 清空数据表。
 
 - **参数**：
-  - `$table`：表名称
+    - `$table`：表名称
 - **返回**：成功返回 true，失败返回 false
 
 #### `createTableSql(string $table, bool $isDropTable = true): string`
+
 获取表的建表语句。
 
 - **参数**：
-  - `$table`：表名称
-  - `$isDropTable`：是否包含 DROP TABLE IF EXISTS 语句
+    - `$table`：表名称
+    - `$isDropTable`：是否包含 DROP TABLE IF EXISTS 语句
 - **返回**：建表语句
 
 ### 3. Backup 类
 
 #### `setPath(string $path, string $rule = 'time'): self`
+
 设置备份保存路径。
 
 - **参数**：
-  - `$path`：备份保存路径
-  - `$rule`：子目录命名规则（time、md5、sha1 或自定义字符串）
+    - `$path`：备份保存路径
+    - `$rule`：子目录命名规则（time、md5、sha1 或自定义字符串）
 - **返回**：Backup 实例
 
 #### `setTable($table): self`
+
 设置要备份的表名或数组。
 
 - **参数**：
-  - `$table`：表名或数组
+    - `$table`：表名或数组
 - **返回**：Backup 实例
 
 #### `setLimit(int $limit = 5000): self`
+
 设置每次备份数据的行数限制。
 
 - **参数**：
-  - `$limit`：行数限制
+    - `$limit`：行数限制
 - **返回**：Backup 实例
 
 #### `setIsAddDropSql(bool $isAddDropSql): self`
+
 设置是否添加删除表结构 SQL。
 
 - **参数**：
-  - `$isAddDropSql`：是否添加
+    - `$isAddDropSql`：是否添加
 - **返回**：Backup 实例
 
 #### `setIsSaveSqlToFile(bool $isSaveSqlToFile): self`
+
 设置是否保存 SQL 语句至文件。
 
 - **参数**：
-  - `$isSaveSqlToFile`：是否保存
+    - `$isSaveSqlToFile`：是否保存
 - **返回**：Backup 实例
 
 #### `exportStructure(): array`
+
 导出表结构。
 
 - **返回**：表结构数组
 
 #### `exportData(): int`
+
 导出表数据。
 
 - **返回**：导出数据行数
 
 #### `exportAll(): array`
+
 导出表结构和数据。
 
 - **返回**：导出结果数组
@@ -324,20 +364,23 @@ $count = $import->execute();
 ### 4. Import 类
 
 #### `loadSqlFile(string $file): Import`
+
 加载 SQL 文件。
 
 - **参数**：
-  - `$file`：SQL 文件路径
+    - `$file`：SQL 文件路径
 - **返回**：Import 实例
 
 #### `loadSqlFileByDir(string $dir, bool $isRecursive = false)`
+
 递归加载目录中的 SQL 文件。
 
 - **参数**：
-  - `$dir`：目录路径
-  - `$isRecursive`：是否递归子目录
+    - `$dir`：目录路径
+    - `$isRecursive`：是否递归子目录
 
 #### `execute(): int`
+
 执行所有加载的 SQL 文件中的语句。
 
 - **返回**：执行的 SQL 语句条数

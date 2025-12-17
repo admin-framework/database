@@ -117,4 +117,12 @@ $import = $database->import;
  */
 $import->loadSqlFileByDir(ROOT_PATH . '/temp', true);
 
-vd($import->getSqlList());
+/**
+ * 查看导入的SQL文件列表
+ */
+// vd($import->getSqlList());
+
+/**
+ * 执行导入
+ */
+//vd($import->execute());

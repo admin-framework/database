@@ -4,12 +4,20 @@
 ## 目录结构
 
 ```
-/Volumes/www/web/AdminFramework/database/
+├── demo/
+│   ├── config.php      # 数据库配置文件
+│   ├── function.php    # 常用函数  
+│   ├── index.php       # 示例  
 ├── src/
 │   ├── Database.php    # 数据库核心类（单例模式）
 │   ├── Table.php       # 数据表操作类
 │   ├── Backup.php      # 数据库备份类
 │   └── Import.php      # 数据库导入类
+├── tests/
+│   ├── DatabaseTest.php    # 数据库核心类测试
+│   ├── TableTest.php       # 数据表操作类测试
+│   ├── BackupTest.php      # 数据库备份类测试
+│   └── ImportTest.php      # 数据库导入类测试
 └── README.md           # 说明文档
 ```
 

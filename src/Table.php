@@ -133,7 +133,7 @@ class Table
      * @param string $table 数据表名称
      * @return bool 成功返回true，失败返回false
      */
-    public function dropTable(string $table): bool
+    public function drop(string $table): bool
     {
         // 验证表名参数
         if (empty($table)) {
@@ -153,7 +153,7 @@ class Table
      * @param string $table 数据表名称
      * @return bool 成功返回true，失败返回false
      */
-    public function truncateTable(string $table): bool
+    public function truncate(string $table): bool
     {
         // 验证表名参数
         if (empty($table)) {

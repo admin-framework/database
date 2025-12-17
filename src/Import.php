@@ -97,4 +97,48 @@ class Import
 
         return $arr;
     }
+
+    /**
+     * 执行 sql 文件中的 sql 语句
+     * @return int 执行的条数
+     */
+    public function execute(): int
+    {
+        $count = 0;
+        // 获取数据库实例
+        $database = Database::getInstance();
+        // 执行 sql 文件中的 sql 语句
+        $sqlFiles = $this->getSqlList();
+        // 遍历每个SQL文件
+        foreach ($sqlFiles as $file) {
+            // 读取sql文件内容
+            $content = file_get_contents($file);
+            // 解析SQL内容，分割为独立的SQL语句
+            $sqlStatements = $this->parseSqlContent($content);
+            // 执行每条SQL语句
+            foreach ($sqlStatements as $sql) {
+                $sql = trim($sql);
+                if (!empty($sql)) {
+                    $database->query($sql);
+                    $count++;
+                }
+            }
+        }
+        return $count;
+    }
+
+    /**
+     * 解析SQL文件内容，分割为独立的SQL语句
+     * @param string $content SQL文件内容
+     * @return array SQL语句数组
+     */
+    private function parseSqlContent(string $content): array
+    {
+        // 过滤掉注释和空行
+        $content = preg_replace('/^--.*\n|^\s+|\n\s+$/m', '', $content);
+        // 按;分割sql
+        $content = explode(';' . PHP_EOL, $content);
+        // 过滤掉空字符串
+        return array_filter($content);
+    }
 }

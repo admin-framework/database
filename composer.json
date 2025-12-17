@@ -32,10 +32,5 @@
     "test": "phpunit tests/",
     "cs-check": "phpcs --standard=PSR12 src/ tests/",
     "cs-fix": "phpcbf --standard=PSR12 src/ tests/"
-  },
-  "config": {
-    "allow-plugins": {
-      "composer/installers": true
-    }
   }
 }

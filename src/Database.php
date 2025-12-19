@@ -77,6 +77,15 @@ class Database
     private function __construct(array $config)
     {
         $this->config = array_merge($this->config, $config);
+        $this->_init();
+    }
+
+    /**
+     * 初始化
+     * @return void
+     */
+    protected function _init()
+    {
     }
 
     /**

@@ -1,9 +1,9 @@
 {
   "name": "admin-framework/database",
   "description": "A simple PHP database component",
+  "version": "dev-master",
   "type": "library",
   "license": "MIT",
-  "version": "1.0.0",
   "authors": [
     {
       "name": "Admin Framework",
